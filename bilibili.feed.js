@@ -4,7 +4,7 @@ if (!$response.body) {
 }
 
 let body = JSON.parse($response.body)
-const blockWords = ['三体', 'b站', '鬼畜']
+const blockWords = ['三体', '罗辑', 'b站', '鬼畜', '赶海', '春晚', '小品', '相声']
 
 function isBlock(text) {
   return text && blockWords.findIndex(w => text.toLowerCase().replace(/\s+/g, '').includes(w)) > -1
