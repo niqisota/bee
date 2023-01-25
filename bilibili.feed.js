@@ -4,7 +4,7 @@ if (!$response.body) {
 }
 
 let body = JSON.parse($response.body)
-const blockWords = ['三体', '罗辑', 'b站', '鬼畜', '赶海', '春晚', '小品', '相声', '三代鹿人', '电影最top']
+const blockWords = ['三体', '罗辑', 'b站', '鬼畜', '赶海', '春晚', '小品', '相声', '三代鹿人', '电影最top', '大肠']
 
 function isBlock(text) {
   return text && blockWords.findIndex(w => text.toLowerCase().replace(/\s+/g, '').includes(w)) > -1
@@ -32,7 +32,9 @@ body.data.items = body.data.items.filter(row => {
   const blocked = isBlockView(row.cover_left_text_1) || isBlock(row.title) || isBlock(row.talk_back) || isBlock(row.args?.up_name) || isBlock(row.args?.rname) || isBlock(row.args?.tname)
   
   if (blocked) {
-    console.log(`blocked ${row.title}`)
+    console.log(`❌ blocked ${row.title}`)
+  } else {
+    console.log(`✅ ${row.title}: ${row.cover_left_text_1}`)
   }
   
   return !blocked
