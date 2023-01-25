@@ -12,7 +12,7 @@ if (method !== "GET") {
 let body = JSON.parse($response.body);
 
 
-const blockWords = ['环球', '综艺', '娱乐杂谈', '影视剪辑', '音乐综合', 'mv', '三体', '罗辑', 'b站', '鬼畜', '赶海', '春晚', '小品', '相声', '三代鹿人', '电影最top', '暴雪', '敬汉', '王师傅', 'lexburner', '大肠']
+const blockWords = ['环球', '综艺', '娱乐杂谈', '电影预告', '人力', '篮球', '足球', '体育',  '影视剪辑', '音乐综合', 'mv', '三体', '罗辑', 'b站', '鬼畜', '赶海', '春晚', '小品', '相声', '三代鹿人', '电影最top', '暴雪', '敬汉', '王师傅', 'lexburner', '大肠']
 
 function isBlock(text) {
   return text && blockWords.findIndex(w => text.toLowerCase().replace(/\s+/g, '').includes(w)) > -1
