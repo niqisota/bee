@@ -131,6 +131,10 @@ if (!body.data) {
           console.log(notifyTitle, '推荐页', "无card_type/card_goto");
         }
 
+        if (!i.title) {
+          return false
+        }
+
         const blocked = isBlockView(i.cover_left_text_1) || isBlock(i.title) || isBlock(i.talk_back) || isBlock(i.args?.up_name) || isBlock(i.args?.rname) || isBlock(i.args?.tname)
     
         if (blocked) {
