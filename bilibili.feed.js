@@ -24,14 +24,13 @@ const nx = {
 }
 
 function isBlockView(num) {
-  for (const key of Object.keys(nx)) {
-    if (String(num).includes(key)) {
-      num = Number(num.replace(key, '')) * nx[key]
-      break;
-    }
+  if(num.includes('万')) {
+    num = parseFloat(num) * 10_000
+  } else if (num.includes('亿')) {
+    num = parseFloat(num) * 100_000_000
   }
 
-  return Number(num) < 100000
+  return Number(num) < 100_000
 }
 
 function fixPos(arr) {
