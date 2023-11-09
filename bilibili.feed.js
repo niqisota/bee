@@ -31,7 +31,7 @@ function isBlockView(num) {
     }
   }
 
-  return Number(num) < 20_000
+  return Number(num) < 100000
 }
 
 function fixPos(arr) {
